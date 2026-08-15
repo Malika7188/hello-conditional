@@ -1,0 +1,28 @@
+{
+    "app-id": "com.example.HelloConditional",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "49",
+    "sdk": "org.gnome.Sdk",
+    "command": "hello-conditional",
+    "finish-args": [
+        "--socket-if=x11:!has-wayland",
+        "--device-if=all:!has-input-device",
+        "--allow-if=devel:true",
+        "--share-if=network:true"
+    ],
+    "modules": [
+        {
+            "name": "hello-conditional",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -Dm755 hello.sh /app/bin/hello-conditional"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "path": "hello.sh"
+                }
+            ]
+        }
+    ]
+}
