@@ -6,9 +6,15 @@
     "command": "hello-conditional",
     "finish-args": [
         "--socket-if=x11:!has-wayland",
+        "--socket-if=wayland:has-wayland",
+        "--socket-if=pulseaudio:false",
         "--device-if=all:!has-input-device",
+        "--device-if=usb:!has-usb-portal",
+        "--device-if=dri:has-usb-device",
         "--allow-if=devel:true",
-        "--share-if=network:true"
+        "--allow-if=multiarch:false",
+        "--share-if=network:true",
+        "--share-if=ipc:!has-wayland"
     ],
     "modules": [
         {
